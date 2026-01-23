@@ -21,3 +21,7 @@
 .create {
     width: 100%;
 }
+
+li {
+    color: red;
+}
