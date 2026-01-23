@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" class="welcome">
+    <h3>Enter Chat Room</h3>
+
+    <div>
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter username" name="username" value="{{username}}"/>
+    </div>
+
+    <div class="join">
+        <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
+        <button type="submit" name="join">Join Room</button>
+    </div>
+
+    <button type="submit" name="create" class="create">Create Room</button>
+</form>
+{% endblock %}
