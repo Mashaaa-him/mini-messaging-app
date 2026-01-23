@@ -14,5 +14,10 @@
     </div>
 
     <button type="submit" name="create" class="create">Create Room</button>
+    {% if error %}
+    <ul>
+        <li>{{error}}</li>
+    </ul>
+    {% endif %}
 </form>
 {% endblock %}
