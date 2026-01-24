@@ -1,5 +1,16 @@
+body {
+    color: lime;
+    background-color: black;
+}
 
-.content {
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,9 +30,6 @@
     width: 100%;
 }
 
-.create {
-    width: 100%;
-}
 
 #error {
     color: red;
@@ -39,7 +47,7 @@
     background-color: black;
     color: lime;
     height: 100vh;
-    width: 100vw;
+    width: 80vw;
     flex-direction: column;
     display: flex;
     align-items: stretch;
