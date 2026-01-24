@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method="post" class="welcome">
-    <h3>Enter Chat Room</h3>
+    <h2><strong>Enter Chat Room</strong></h2>
 
     <div>
-        <label for="username">Username</label>
+        <label for="username"><strong>Username: </strong></label>
         <input type="text" placeholder="Enter username" name="username" value="{{username}}"/>
+        <button type="submit" name="create">Create Room</button>
     </div>
 
     <div class="join">
+        <label for="code"><strong>Room Code: </strong></label>
         <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
         <button type="submit" name="join">Join Room</button>
     </div>
 
-    <button type="submit" name="create" class="create">Create Room</button>
     {% if note %}
     <ul>
         <li id="note">{{note}}</li>
@@ -24,5 +25,6 @@
         <li id="error">{{error}}</li>
     </ul>
     {% endif %}
+
 </form>
 {% endblock %}
