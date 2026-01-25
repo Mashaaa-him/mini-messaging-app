@@ -1,0 +1,28 @@
+/* HOMEPAGE MANENOZ */
+.welcome {
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid lime;
+    box-shadow: 0 0 20px 5px rgba(0, 255, 0, 0.736);
+    padding: 20px;
+    background: rgba(0,0,0,0.45);   /* gives the semi-transparent feel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.join {
+    display: flex;
+    padding: 10px;
+    flex-direction:row;
+}
+
+#error {
+    color: red;
+}
+
+#note {
+    color: #00b600
+}

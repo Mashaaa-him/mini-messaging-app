@@ -1,0 +1,25 @@
+/* ROOM MANENOZ */
+.message-box {
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid lime;
+    box-shadow: 0 0 20px 5px rgba(0, 255, 0, 0.736);
+    background: rgba(0,0,0,0.45);
+    color: lime;
+    height: 90vh;
+    flex-direction: column;
+    display:flex;
+    align-items: center;
+}
+
+.messages {
+    overflow-y: auto;   /* U want the message to be scrollable */
+    width: 80%;
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0);
+}

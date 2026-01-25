@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/room.css')}}">
+{% endblock %}
+{% block content %}
+    <script>const USERNAME = "{{name}}";</script>
+    
+    <div class="message-box">
+        <div class="stick">
+            <h1>Chat Room: {{room}}</h1><br>
+        </div>
+        <div class="messages" id="messages"></div>
+        <script src="/static/js/room.js"></script>
+        {% for msg in messages %}
+            <script>
+                createMessage("{{msg.name}}", "{{msg.message}}", "{{msg.time}}")
+            </script>
+        {% endfor %}
+        <div class="input">
+            <textarea id="message" placeholder="Type a message…" rows="1"></textarea>
+            <button type="button" name="send" id="send" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+{% endblock %}
