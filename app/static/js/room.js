@@ -2,9 +2,11 @@ var socketio = io();
         
 const messages = document.getElementById("messages")
 
+// U want sender's msgs on the let and the rest on the right
 const createMessage = (name, msg, time) => {
     const content = `
     <div class="text">
+        <hr>
         <span>
             <strong>${name}</strong>: ${msg}    
         </span>
@@ -25,6 +27,6 @@ const sendMessage = () => {
     if (message.value == "") return;
     console.log(message.value)
     const timestamp = new Date().toLocaleString()
-    socketio.emit("message", {data: message.value, time: timestamp});
+    socketio.emit("message", {name: USERNAME, data: message.value, time: timestamp});
     message.value = "";
 };
