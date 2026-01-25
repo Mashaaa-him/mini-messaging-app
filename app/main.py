@@ -9,6 +9,7 @@ app.config["SECRET_KEY"] = "messaging_app"
 socketio = SocketIO(app)
 
 rooms = {}  # keep track of generated rooms 
+users = {}  # keep track of users session id
 
 # generate room codes
 def gen_room(length):
@@ -64,7 +65,7 @@ def room():
         print(room, "\n", name, "\n", rooms)
         return redirect(url_for("home"))    # use redirect(url_for()) - for easy code maintenance i.e if U want to change the url for home to "/home"
     
-    return render_template("room.html", room=room)
+    return render_template("room.html", room=room, name=name)
 
 
 @socketio.on("message")
@@ -88,6 +89,7 @@ def message(data):
 def connect(auth=None): # auth is required even if it's None
     chat = session.get("room")  # naming conflict :=(
     name = session.get("name")
+    sid = request.sid
 
     if not name or not chat:
         return
@@ -102,8 +104,23 @@ def connect(auth=None): # auth is required even if it's None
         "message" : "has joined chat room.",
         "time" : str(time)
     }
+
     send(content, to=chat)
+    users[name] = sid
     rooms[chat]["members"] += 1 # add now because now is when user joined room
+    if rooms[chat]["messages"]:
+        messages = []
+        for msg in rooms[chat]["messages"]:
+            """
+            
+                "name": rooms[chat]["messages"]["name"],
+                "message": rooms[chat]["messages"]["message"],
+                "time": rooms[chat]["messages"]["time"]
+            }"""
+            send(msg, to=sid)
+            messages.append(msg)
+        print("\n", f"Messages: {messages}")
+        # send(messages, to=sid)
     print(f"\n{name} joined room {chat} sucessfully!!") 
     print(rooms)
 
