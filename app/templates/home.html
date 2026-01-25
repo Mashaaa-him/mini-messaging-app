@@ -3,14 +3,12 @@
 <form method="post" class="welcome">
     <h2><strong>Enter Chat Room</strong></h2>
 
-    <div>
-        <label for="username"><strong>Username: </strong></label>
+    <div class="join"> <!-- I'm yet to figure out how to make it all look uniform-->
         <input type="text" placeholder="Enter username" name="username" value="{{username}}"/>
         <button type="submit" name="create">Create Room</button>
     </div>
 
     <div class="join">
-        <label for="code"><strong>Room Code: </strong></label>
         <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
         <button type="submit" name="join">Join Room</button>
     </div>
