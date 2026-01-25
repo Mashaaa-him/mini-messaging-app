@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/home.css')}}">
+{% endblock %}
 {% block content %}
 <form method="post" class="welcome">
     <h2><strong>Enter Chat Room</strong></h2>
 
     <div class="join"> <!-- I'm yet to figure out how to make it all look uniform-->
-        <input type="text" placeholder="Enter username" name="username" value="{{username}}"/>
+        <textarea name="username" placeholder="Enter a username..." value="{{username}}"></textarea>
         <button type="submit" name="create">Create Room</button>
     </div>
 
     <div class="join">
-        <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
-        <button type="submit" name="join">Join Room</button>
+        <textarea name="code" placeholder="Enter a Room Code..." value="{{code}}"></textarea>
+        <button type="submit">Join Room</button>
     </div>
 
     {% if note %}
